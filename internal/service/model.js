@@ -2,17 +2,17 @@ const mongoose = require("mongoose")
 const blogSchema = new mongoose.Schema(
     {
         id: {
-            Type : Number,
-            require : true,
+            type : String,
+            required : true,
         },
         title: {
-            Type : String,
+            type : String,
             unique : true,
-            require : true,
+            required : true,
         },
         content: {
-            Type : String,
-            require : true,
+            type : String,
+            required : true,
         }
     },
     {
@@ -20,5 +20,5 @@ const blogSchema = new mongoose.Schema(
     }
 )
 
-const Blog = mongoose.Model(blogSchema)
+const Blog = mongoose.model("Blogs",blogSchema)
 module.exports = Blog
