@@ -11,8 +11,8 @@ const BlogController = {
     },
     CreateBlog : async(req,res) => {
         try{
-            const {id, title, content} = req.body
-            if (!id){
+            const {_id, title, content} = req.body
+            if (!_id){
                 return res.status(403).json({message : "The id field is missing"})
             }
             if(!title){
@@ -21,7 +21,7 @@ const BlogController = {
             if(!content){
                 return res.status(403).json({message : "The content field is missing"})
             }
-            const newBlog = new Blog({id,title,content})
+            const newBlog = new Blog({_id,title,content})
             await newBlog.save()
             return res.status(201).json({message : "The blog entry have been created"})
         }catch(err){
